@@ -13,7 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private let databaseCoreDataName = "EhHoDB"
+    private let databaseCoreDataName = "proyectoFinaliOS"
     lazy var persistentContainer: NSPersistentContainer = {
         let container =  NSPersistentContainer(name: databaseCoreDataName)
         container.loadPersistentStores(completionHandler: {(storeDescription, error) in
@@ -22,10 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
+        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        print(paths[0])
         
-        //Todo: Hacer la vista login y registro
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+        let viewController = RegisterRouter.configureModule()
+        
+        window?.rootViewController = viewController
+        
         return true
     }
 }
