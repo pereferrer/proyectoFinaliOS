@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let viewController = RegisterRouter.configureModule()
+        let viewController = LoginRouter.configureModule()
         
         window?.rootViewController = viewController
         

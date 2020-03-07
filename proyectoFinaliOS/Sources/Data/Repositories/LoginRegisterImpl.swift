@@ -22,4 +22,11 @@ class LoginRegisterImpl: LoginRegisterRepository{
             completation(result)
         }
     }
+    
+    func loginUser(username: String, password:String, completation: @escaping (Result<LoginResponse, ApiErrorResponse>) -> ()) {
+        let request = LoginUserRequest(username: username, password: password)
+        session.send(request: request){result in
+            completation(result)
+        }
+    }
 }

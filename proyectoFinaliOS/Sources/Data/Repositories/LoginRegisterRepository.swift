@@ -11,4 +11,5 @@ import Foundation
 protocol LoginRegisterRepository {
     
     func createNewUser(name: String, email: String, password: String, username: String, completation: @escaping(Result<NewUserResponse, ApiErrorResponse>)->())
+    func loginUser(username:String, password:String, completation: @escaping(Result<LoginResponse, ApiErrorResponse>)->())
 }

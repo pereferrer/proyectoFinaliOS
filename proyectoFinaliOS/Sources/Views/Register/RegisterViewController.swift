@@ -52,7 +52,7 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func signIn(_ sender: Any) {
-        //Todo llamar a vista SignIn cuando esté acabada
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
