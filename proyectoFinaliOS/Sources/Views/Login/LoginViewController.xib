@@ -23,23 +23,32 @@
                     <rect key="frame" x="64" y="310" width="286" height="276"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-PJ-W4t">
-                            <rect key="frame" x="0.0" y="0.0" width="286" height="76"/>
+                            <rect key="frame" x="0.0" y="0.0" width="286" height="51"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T3b-Tt-PXT">
-                            <rect key="frame" x="0.0" y="100" width="286" height="76"/>
+                            <rect key="frame" x="0.0" y="75" width="286" height="51"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dh8-ha-VTL">
-                            <rect key="frame" x="0.0" y="200" width="286" height="76"/>
+                            <rect key="frame" x="0.0" y="150" width="286" height="51"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <color key="tintColor" red="0.73725490199999999" green="0.31764705879999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Sign In"/>
                             <connections>
                                 <action selector="signIn:" destination="-1" eventType="touchUpInside" id="8K7-4T-N04"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMQ-Zp-28m">
+                            <rect key="frame" x="0.0" y="225" width="286" height="51"/>
+                            <state key="normal" title="Forgo Password?">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="forgotPassword:" destination="-1" eventType="touchUpInside" id="msC-2u-4Po"/>
                             </connections>
                         </button>
                     </subviews>

@@ -35,6 +35,8 @@
 		D10D625524139CC50019FD40 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D10D625324139CC50019FD40 /* LoginViewController.xib */; };
 		D10D625724139F890019FD40 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D625624139F890019FD40 /* LoginResponse.swift */; };
 		D10D62592413A3E60019FD40 /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D62582413A3E60019FD40 /* LoginUserRequest.swift */; };
+		D10D625B2416D4130019FD40 /* ForgotPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D625A2416D4130019FD40 /* ForgotPasswordResponse.swift */; };
+		D10D625D2416D4A70019FD40 /* ForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D625C2416D4A70019FD40 /* ForgotPasswordRequest.swift */; };
 		D117B3F12405361B00A6B383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D117B3F02405361B00A6B383 /* AppDelegate.swift */; };
 		D117B3F62405361B00A6B383 /* proyectoFinaliOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D117B3F42405361B00A6B383 /* proyectoFinaliOS.xcdatamodeld */; };
 		D117B3FA2405361C00A6B383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D117B3F92405361C00A6B383 /* Assets.xcassets */; };
@@ -86,6 +88,8 @@
 		D10D625324139CC50019FD40 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		D10D625624139F890019FD40 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		D10D62582413A3E60019FD40 /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
+		D10D625A2416D4130019FD40 /* ForgotPasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordResponse.swift; sourceTree = "<group>"; };
+		D10D625C2416D4A70019FD40 /* ForgotPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRequest.swift; sourceTree = "<group>"; };
 		D117B3ED2405361B00A6B383 /* proyectoFinaliOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = proyectoFinaliOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D117B3F02405361B00A6B383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D117B3F52405361B00A6B383 /* proyectoFinaliOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = proyectoFinaliOS.xcdatamodel; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 				D1A1ACEA240676DB00A2F91F /* Responses */,
 				D10D6230240A66B60019FD40 /* NewUserRequest.swift */,
 				D10D62582413A3E60019FD40 /* LoginUserRequest.swift */,
+				D10D625C2416D4A70019FD40 /* ForgotPasswordRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 				D10D6238240A73FE0019FD40 /* ApiErrorResponse.swift */,
 				D10D6232240A671B0019FD40 /* NewUserResponse.swift */,
 				D10D625624139F890019FD40 /* LoginResponse.swift */,
+				D10D625A2416D4130019FD40 /* ForgotPasswordResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -500,8 +506,10 @@
 				D10D6227240A61DD0019FD40 /* CustomView.swift in Sources */,
 				D10D6239240A73FE0019FD40 /* ApiErrorResponse.swift in Sources */,
 				D10D622D240A61DD0019FD40 /* imageExtensions.swift in Sources */,
+				D10D625B2416D4130019FD40 /* ForgotPasswordResponse.swift in Sources */,
 				D10D6229240A61DD0019FD40 /* UITableViewCellExten.swift in Sources */,
 				D10D624F24139CA10019FD40 /* LoginRouter.swift in Sources */,
+				D10D625D2416D4A70019FD40 /* ForgotPasswordRequest.swift in Sources */,
 				D10D62592413A3E60019FD40 /* LoginUserRequest.swift in Sources */,
 				D10D6225240A61DD0019FD40 /* StringExtensions.swift in Sources */,
 				D10D624A240D0B0D0019FD40 /* RegisterViewController.swift in Sources */,

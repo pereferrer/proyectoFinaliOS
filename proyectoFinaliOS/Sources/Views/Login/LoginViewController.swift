@@ -45,14 +45,28 @@ class LoginViewController: UIViewController {
     @IBAction func createAccount(_ sender: Any) {
         self.loginViewModel.didTapInCreateAccount()
     }
+    
+    @IBAction func forgotPassword(_ sender: Any) {
+        if(isTextFieldNotNil(textfield: usernameTextField)){
+            self.loginViewModel.didTapInForgotPassword(login: usernameTextField.text!)
+        }else{
+            showAlertView(message: "Email cannot be empty", isError:true)
+        }
+    }
+    
 }
 
 protocol LoginViewControllerProtocol: class {
     func loginSuccessfully()
     func showError(with message: String)
+    func recoverPasswordSuccessfully()
 }
 
 extension LoginViewController:LoginViewControllerProtocol{
+    func recoverPasswordSuccessfully() {
+        print("Recover Password completado correctamente")
+    }
+    
     func loginSuccessfully() {
         print("Login completado correctamente")
     }

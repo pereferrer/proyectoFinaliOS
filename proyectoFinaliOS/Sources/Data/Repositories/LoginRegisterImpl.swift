@@ -9,6 +9,7 @@
 import Foundation
 
 class LoginRegisterImpl: LoginRegisterRepository{
+    
     let session: SessionAPI
     
     init(session: SessionAPI) {
@@ -25,6 +26,13 @@ class LoginRegisterImpl: LoginRegisterRepository{
     
     func loginUser(username: String, password:String, completation: @escaping (Result<LoginResponse, ApiErrorResponse>) -> ()) {
         let request = LoginUserRequest(username: username, password: password)
+        session.send(request: request){result in
+            completation(result)
+        }
+    }
+    
+    func forgotPasswordUser(login: String, completation: @escaping (Result<ForgotPasswordResponse, ApiErrorResponse>) -> ()) {
+        let request = ForgotPasswordRequest(login:login)
         session.send(request: request){result in
             completation(result)
         }

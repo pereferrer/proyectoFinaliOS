@@ -33,4 +33,18 @@ class LoginViewModel{
     func didTapInCreateAccount() {
         router.navigateToCreateAccount()
     }
+    
+    func didTapInForgotPassword(login:String){
+        registerRepository.forgotPasswordUser(login:login){[weak self] result in switch result{
+                   case .success(let value):
+                        if value.user_found{
+                            self?.view?.recoverPasswordSuccessfully()
+                        }else{
+                            self?.view?.showError(with: "User not found")
+                    }
+                   case .failure(let value):
+                       self?.view?.showError(with: value.errors.joined(separator: ","))
+            }
+        }
+    }
 }
