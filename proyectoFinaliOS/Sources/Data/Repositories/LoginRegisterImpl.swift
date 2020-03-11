@@ -9,7 +9,7 @@
 import Foundation
 
 class LoginRegisterImpl: LoginRegisterRepository{
-    
+   
     let session: SessionAPI
     
     init(session: SessionAPI) {
@@ -37,4 +37,18 @@ class LoginRegisterImpl: LoginRegisterRepository{
             completation(result)
         }
     }
+    
+    func detailUser(username: String, completation: @escaping (Result<DetailUserResponse, ApiErrorResponse>) -> ()) {
+        let request = DetailUserRequest(username: username)
+        session.send(request: request){result in
+            completation(result)
+        }
+    }
+    
+    func privateMessageList(username: String, completation: @escaping (Result<PrivateMessageListResponse, ApiErrorResponse>) -> ()) {
+           let request = privateMessageListRequest(username: username)
+           session.send(request: request){result in
+               completation(result)
+           }
+       }
 }

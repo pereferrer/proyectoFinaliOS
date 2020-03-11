@@ -37,6 +37,14 @@
 		D10D62592413A3E60019FD40 /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D62582413A3E60019FD40 /* LoginUserRequest.swift */; };
 		D10D625B2416D4130019FD40 /* ForgotPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D625A2416D4130019FD40 /* ForgotPasswordResponse.swift */; };
 		D10D625D2416D4A70019FD40 /* ForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D625C2416D4A70019FD40 /* ForgotPasswordRequest.swift */; };
+		D10D625F2417923A0019FD40 /* DetailUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D625E2417923A0019FD40 /* DetailUserResponse.swift */; };
+		D10D6261241793340019FD40 /* DetailUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D6260241793340019FD40 /* DetailUserRequest.swift */; };
+		D116368A241796B100071052 /* privateMessageListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1163689241796B100071052 /* privateMessageListResponse.swift */; };
+		D116368C2417984400071052 /* privateMessageListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D116368B2417984400071052 /* privateMessageListRequest.swift */; };
+		D116368F24179B6500071052 /* DetailUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D116368E24179B6500071052 /* DetailUserRouter.swift */; };
+		D116369124179B7B00071052 /* DetailUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D116369024179B7B00071052 /* DetailUserViewModel.swift */; };
+		D116369424179B8C00071052 /* DetailUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D116369224179B8C00071052 /* DetailUserViewController.swift */; };
+		D116369524179B8C00071052 /* DetailUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D116369324179B8C00071052 /* DetailUserViewController.xib */; };
 		D117B3F12405361B00A6B383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D117B3F02405361B00A6B383 /* AppDelegate.swift */; };
 		D117B3F62405361B00A6B383 /* proyectoFinaliOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D117B3F42405361B00A6B383 /* proyectoFinaliOS.xcdatamodeld */; };
 		D117B3FA2405361C00A6B383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D117B3F92405361C00A6B383 /* Assets.xcassets */; };
@@ -90,6 +98,14 @@
 		D10D62582413A3E60019FD40 /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
 		D10D625A2416D4130019FD40 /* ForgotPasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordResponse.swift; sourceTree = "<group>"; };
 		D10D625C2416D4A70019FD40 /* ForgotPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRequest.swift; sourceTree = "<group>"; };
+		D10D625E2417923A0019FD40 /* DetailUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserResponse.swift; sourceTree = "<group>"; };
+		D10D6260241793340019FD40 /* DetailUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserRequest.swift; sourceTree = "<group>"; };
+		D1163689241796B100071052 /* privateMessageListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privateMessageListResponse.swift; sourceTree = "<group>"; };
+		D116368B2417984400071052 /* privateMessageListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privateMessageListRequest.swift; sourceTree = "<group>"; };
+		D116368E24179B6500071052 /* DetailUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserRouter.swift; sourceTree = "<group>"; };
+		D116369024179B7B00071052 /* DetailUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserViewModel.swift; sourceTree = "<group>"; };
+		D116369224179B8C00071052 /* DetailUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserViewController.swift; sourceTree = "<group>"; };
+		D116369324179B8C00071052 /* DetailUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailUserViewController.xib; sourceTree = "<group>"; };
 		D117B3ED2405361B00A6B383 /* proyectoFinaliOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = proyectoFinaliOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D117B3F02405361B00A6B383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D117B3F52405361B00A6B383 /* proyectoFinaliOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = proyectoFinaliOS.xcdatamodel; sourceTree = "<group>"; };
@@ -152,6 +168,17 @@
 				D10D6249240D0B0D0019FD40 /* RegisterViewController.xib */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		D116368D24179B5300071052 /* DetailUser */ = {
+			isa = PBXGroup;
+			children = (
+				D116368E24179B6500071052 /* DetailUserRouter.swift */,
+				D116369024179B7B00071052 /* DetailUserViewModel.swift */,
+				D116369224179B8C00071052 /* DetailUserViewController.swift */,
+				D116369324179B8C00071052 /* DetailUserViewController.xib */,
+			);
+			path = DetailUser;
 			sourceTree = "<group>";
 		};
 		D117B3E42405361B00A6B383 = {
@@ -221,6 +248,8 @@
 				D10D6230240A66B60019FD40 /* NewUserRequest.swift */,
 				D10D62582413A3E60019FD40 /* LoginUserRequest.swift */,
 				D10D625C2416D4A70019FD40 /* ForgotPasswordRequest.swift */,
+				D10D6260241793340019FD40 /* DetailUserRequest.swift */,
+				D116368B2417984400071052 /* privateMessageListRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -241,6 +270,8 @@
 				D10D6232240A671B0019FD40 /* NewUserResponse.swift */,
 				D10D625624139F890019FD40 /* LoginResponse.swift */,
 				D10D625A2416D4130019FD40 /* ForgotPasswordResponse.swift */,
+				D10D625E2417923A0019FD40 /* DetailUserResponse.swift */,
+				D1163689241796B100071052 /* privateMessageListResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -291,6 +322,7 @@
 		D1A1ACF02406773200A2F91F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D116368D24179B5300071052 /* DetailUser */,
 				D10D623F240A7FA60019FD40 /* Register */,
 				D10D623E240A7F9F0019FD40 /* Login */,
 			);
@@ -432,6 +464,7 @@
 			files = (
 				D10D625524139CC50019FD40 /* LoginViewController.xib in Resources */,
 				D117B4002405361C00A6B383 /* LaunchScreen.storyboard in Resources */,
+				D116369524179B8C00071052 /* DetailUserViewController.xib in Resources */,
 				D117B3FA2405361C00A6B383 /* Assets.xcassets in Resources */,
 				D10D624B240D0B0D0019FD40 /* RegisterViewController.xib in Resources */,
 			);
@@ -505,6 +538,8 @@
 				D10D623B240A77A40019FD40 /* LoginRegisterRepository.swift in Sources */,
 				D10D6227240A61DD0019FD40 /* CustomView.swift in Sources */,
 				D10D6239240A73FE0019FD40 /* ApiErrorResponse.swift in Sources */,
+				D116368F24179B6500071052 /* DetailUserRouter.swift in Sources */,
+				D10D6261241793340019FD40 /* DetailUserRequest.swift in Sources */,
 				D10D622D240A61DD0019FD40 /* imageExtensions.swift in Sources */,
 				D10D625B2416D4130019FD40 /* ForgotPasswordResponse.swift in Sources */,
 				D10D6229240A61DD0019FD40 /* UITableViewCellExten.swift in Sources */,
@@ -515,17 +550,22 @@
 				D10D624A240D0B0D0019FD40 /* RegisterViewController.swift in Sources */,
 				D10D625424139CC50019FD40 /* LoginViewController.swift in Sources */,
 				D117B3F12405361B00A6B383 /* AppDelegate.swift in Sources */,
+				D10D625F2417923A0019FD40 /* DetailUserResponse.swift in Sources */,
 				D10D625724139F890019FD40 /* LoginResponse.swift in Sources */,
 				D10D6237240A73BB0019FD40 /* APIClient.swift in Sources */,
 				D10D6243240AB3110019FD40 /* RegisterViewModel.swift in Sources */,
 				D10D6235240A69B60019FD40 /* APIRequest.swift in Sources */,
+				D116369124179B7B00071052 /* DetailUserViewModel.swift in Sources */,
 				D10D6226240A61DD0019FD40 /* GlobalsVariables.swift in Sources */,
+				D116369424179B8C00071052 /* DetailUserViewController.swift in Sources */,
 				D117B3F62405361B00A6B383 /* proyectoFinaliOS.xcdatamodeld in Sources */,
+				D116368A241796B100071052 /* privateMessageListResponse.swift in Sources */,
 				D10D6228240A61DD0019FD40 /* DateExtensions.swift in Sources */,
 				D10D6241240AB3010019FD40 /* RegisterRouter.swift in Sources */,
 				D10D622A240A61DD0019FD40 /* UiColorExtensions.swift in Sources */,
 				D10D623D240A78A00019FD40 /* LoginRegisterImpl.swift in Sources */,
 				D10D622B240A61DD0019FD40 /* CheckInternetStatus.swift in Sources */,
+				D116368C2417984400071052 /* privateMessageListRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
