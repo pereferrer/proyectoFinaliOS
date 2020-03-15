@@ -12,17 +12,21 @@ class LoginViewModel{
     weak var view: LoginViewControllerProtocol?
     let router: LoginRouter
     let registerRepository: LoginRegisterRepository
+    let dataManager: DataManager
     
     init(router: LoginRouter,
-         registerRepository: LoginRegisterRepository){
+         registerRepository: LoginRegisterRepository,
+         dataManager:DataManager){
         self.router = router
         self.registerRepository = registerRepository
+        self.dataManager = dataManager
     }
     
     func didTapInLogin(password:String, username:String){
         registerRepository.loginUser(username: username, password: password){[weak self] result in
             switch result{
-            case .success:
+            case .success(let value):
+                self?.dataManager.saveSession(username: value.user.username)
                 self?.view?.loginSuccessfully()
             case .failure(let value):
                 self?.view?.showError(with: value.errors.joined(separator: ","))
@@ -46,5 +50,9 @@ class LoginViewModel{
                        self?.view?.showError(with: value.errors.joined(separator: ","))
             }
         }
+    }
+    
+    func toMainView(){
+        self.router.navigateToMainView()
     }
 }

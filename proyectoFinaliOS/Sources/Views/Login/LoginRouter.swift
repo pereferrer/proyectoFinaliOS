@@ -18,7 +18,8 @@ class LoginRouter {
         let router = LoginRouter()
         let sessionApi = SessionAPI()
         let loginRegisterRepository = LoginRegisterImpl(session: sessionApi)
-        let viewModel = LoginViewModel(router: router, registerRepository: loginRegisterRepository)
+        let dataManager = DataManager()
+        let viewModel = LoginViewModel(router: router, registerRepository: loginRegisterRepository, dataManager: dataManager)
         let viewController = LoginViewController(loginViewModel: viewModel)
         
         viewModel.view = viewController
@@ -31,5 +32,11 @@ class LoginRouter {
         let registerViewController = RegisterRouter.configureModule()
         //registerViewController.modalPresentationStyle = .fullScreen
         viewController?.present(registerViewController, animated: true)
+    }
+    
+    func navigateToMainView(){
+        let tabBar = TabBarController(topicsController: TopicsRouter.configureModule(), categoriesController: CategoriesTopicsRouter.configureModule(), createTopicController: CreateTopicRouter.configureModule(), sendMessageController: SendPrivateMessageRouter.configureModule())
+        
+        self.viewController?.present(tabBar, animated: true, completion: nil)
     }
 }

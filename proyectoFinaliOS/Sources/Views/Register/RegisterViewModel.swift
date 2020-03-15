@@ -12,11 +12,14 @@ class RegisterViewModel{
     weak var view: RegisterViewControllerProtocol?
     let router: RegisterRouter
     let registerRepository: LoginRegisterRepository
+    let dataManager: DataManager
     
     init(router: RegisterRouter,
-         registerRepository: LoginRegisterRepository){
+         registerRepository: LoginRegisterRepository,
+         dataManager:DataManager){
         self.router = router
         self.registerRepository = registerRepository
+        self.dataManager = dataManager
     }
     
     func didTapInRegisterNewUser(name:String, email:String,
@@ -24,6 +27,7 @@ class RegisterViewModel{
         registerRepository.createNewUser(name: name, email: email, password: password, username: username){[weak self] result in
             switch result{
             case .success:
+                self?.dataManager.saveSession(username: username)
                 self?.view?.showRegisterUserSuccessfully()
             case .failure(let value):
                 self?.view?.showError(with: value.errors.joined(separator: ","))

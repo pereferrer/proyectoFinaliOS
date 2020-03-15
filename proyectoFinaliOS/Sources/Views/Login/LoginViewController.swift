@@ -68,7 +68,7 @@ extension LoginViewController:LoginViewControllerProtocol{
     }
     
     func loginSuccessfully() {
-        print("Login completado correctamente")
+        self.loginViewModel.toMainView()
     }
     
     func showError(with message: String) {

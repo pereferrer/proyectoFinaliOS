@@ -18,7 +18,8 @@ class RegisterRouter {
         let router = RegisterRouter()
         let sessionApi = SessionAPI()
         let loginRegisterRepository = LoginRegisterImpl(session: sessionApi)
-        let viewModel = RegisterViewModel(router: router, registerRepository: loginRegisterRepository)
+        let dataManager = DataManager()
+        let viewModel = RegisterViewModel(router: router, registerRepository: loginRegisterRepository, dataManager: dataManager)
         let viewController = RegisterViewController(registerViewModel: viewModel)
         
         viewModel.view = viewController
