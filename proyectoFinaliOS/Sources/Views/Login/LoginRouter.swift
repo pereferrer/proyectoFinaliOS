@@ -35,8 +35,9 @@ class LoginRouter {
     }
     
     func navigateToMainView(){
-        let tabBar = TabBarController(topicsController: TopicsRouter.configureModule(), categoriesController: CategoriesTopicsRouter.configureModule(), createTopicController: CreateTopicRouter.configureModule(), sendMessageController: SendPrivateMessageRouter.configureModule())
+        let tabBar = TabBarController(topicsController: TopicsRouter.configureModule(), categoriesController: CategoriesTopicsRouter.configureModule(), createTopicController: CreateTopicRouter.configureModule(), detailUserController: DetailUserRouter.configureModule())
         
+        tabBar.modalPresentationStyle = .fullScreen
         self.viewController?.present(tabBar, animated: true, completion: nil)
     }
 }

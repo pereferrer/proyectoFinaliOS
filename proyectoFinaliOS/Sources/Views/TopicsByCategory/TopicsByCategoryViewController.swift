@@ -16,6 +16,9 @@ class TopicsByCategoryViewController: UIViewController {
     let cellIdentifier = "TopicsByCategoryTableViewCell"
     let viewModel:TopicsByCategoryViewModel
     var topics:[TopicModel] = []
+    var topicsFiltered:[TopicModel] = []
+    var resultSearchController = UISearchController()
+
     
     init(viewModel: TopicsByCategoryViewModel){
         self.viewModel = viewModel
@@ -80,13 +83,34 @@ extension TopicsByCategoryViewController{
         tableView.register(cell, forCellReuseIdentifier: cellIdentifier)
         let headerNib = UINib.init(nibName: "TopicsByCategoryHeader", bundle: Bundle.main)
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "TopicsByCategoryHeader")
+        resultSearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.searchBar.sizeToFit()
+
+            tableView.tableHeaderView = controller.searchBar
+
+            return controller
+        })()
+        
+        // Reload the table
+        tableView.reloadData()
     }
     
     private func configureNavigationUI(){
         self.navigationController?.navigationBar.prefersLargeTitles = true
         title = "Topics"
         self.navigationController?.navigationBar.tintColor = UIColor(rgb: 0xF39000)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(activeSearchBar))
+    }
+    
+    @objc private func activeSearchBar(){
+        if(resultSearchController.isActive){
+            resultSearchController.isActive = false
+        }else{
+            resultSearchController.isActive = true
+        }
     }
     
     private func configureButtonNewTopic(){
@@ -138,19 +162,54 @@ extension TopicsByCategoryViewController: UITableViewDelegate{
 
 extension TopicsByCategoryViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return topics.count
+        if (resultSearchController.isActive) {
+            return topicsFiltered.count
+        } else {
+            return topics.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TopicsByCategoryTableViewCell else {
-            return UITableViewCell()
+        if (resultSearchController.isActive) {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TopicsByCategoryTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.configureCell()
+            cell.titleLabel.text = topicsFiltered[indexPath.row].title
+            cell.countVisits.text = String(topicsFiltered[indexPath.row].visits)
+            
+            return cell
+        }
+        else {
+           guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TopicsByCategoryTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.configureCell()
+            cell.titleLabel.text = topics[indexPath.row].title
+            cell.countVisits.text = String(topics[indexPath.row].visits)
+            
+            return cell
+        }
+    }
+    
+}
+
+extension TopicsByCategoryViewController: UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        topicsFiltered.removeAll(keepingCapacity: false)
+        
+        topicsFiltered = topics.filter {
+            $0.title.localizedCaseInsensitiveContains(searchController.searchBar.text!)
         }
         
-        cell.configureCell()
-        cell.titleLabel.text = topics[indexPath.row].title
-        cell.countVisits.text = String(topics[indexPath.row].visits)
-        
-        return cell
+        if topicsFiltered.count == 0{
+            topicsFiltered = topics
+        }
+
+        self.tableView.reloadData()
     }
     
 }

@@ -114,14 +114,21 @@ struct Poster: Codable {
 }
 // MARK: - User
 struct User: Codable {
-    let id: Int
-    let username: String
-    let name: String
-    let avatarTemplate: String
+    let id: Int?
+    let username: String?
+    let name: String?
+    let avatarTemplate: String?
+    let email: String?
+    let last_seen_at: String?
+    let moderator: Bool?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case username
         case name
         case avatarTemplate = "avatar_template"
+        case email
+        case last_seen_at = "last_seen_at"
+        case moderator = "moderator"
     }
 }

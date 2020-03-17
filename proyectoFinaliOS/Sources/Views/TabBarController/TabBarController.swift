@@ -13,13 +13,13 @@ class TabBarController: UITabBarController {
     let topicsController: UIViewController
     let categoriesController: UIViewController
     let createTopicController: UIViewController
-    let sendMessageController: UIViewController
+    let detailUserController: UIViewController
     
-    init(topicsController: UIViewController, categoriesController: UIViewController, createTopicController: UIViewController, sendMessageController: UIViewController) {
+    init(topicsController: UIViewController, categoriesController: UIViewController, createTopicController: UIViewController, detailUserController: UIViewController) {
         self.topicsController = topicsController
         self.categoriesController = categoriesController
         self.createTopicController = createTopicController
-        self.sendMessageController = sendMessageController
+        self.detailUserController = detailUserController
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -44,14 +44,14 @@ class TabBarController: UITabBarController {
         createTopicController.tabBarItem = UITabBarItem(title: "Create topic", image: UIImage(named: "baseline_add_black_18dp"), selectedImage: nil)
         createTopicController.title = "Create topic"
         
-        let sendMessageController = self.sendMessageController
-        sendMessageController.tabBarItem = UITabBarItem(title: "Send message", image: UIImage(named: "baseline_message_black_18dp"), selectedImage: nil)
-        sendMessageController.title = "Send message"
+        let detailUserController = self.detailUserController
+        detailUserController.tabBarItem = UITabBarItem(title: "Detail User", image: UIImage(named: "baseline_message_black_18dp"), selectedImage: nil)
+        detailUserController.title = "Detail User"
 
         self.tabBar.tintColor = UIColor(rgb: 0xF39000)
         self.tabBar.unselectedItemTintColor = .black
         self.tabBar.barTintColor = .white
-        let controllers = [categoriesController, createTopicController, sendMessageController]
+        let controllers = [categoriesController, createTopicController, detailUserController]
         self.viewControllers = controllers.map { UINavigationController(rootViewController: $0) }
     }
 }

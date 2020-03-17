@@ -10,7 +10,7 @@ import Foundation
 
 struct TopicsByCategoryResponse: Codable{
     let users: [User]
-    let topicList: TopicList
+    let topicList: Topic_List
     
     enum CodingKeys: String, CodingKey {
         case users = "users"

@@ -26,7 +26,7 @@ class LoginViewModel{
         registerRepository.loginUser(username: username, password: password){[weak self] result in
             switch result{
             case .success(let value):
-                self?.dataManager.saveSession(username: value.user.username)
+                self?.dataManager.saveSession(username: value.user.username!)
                 self?.view?.loginSuccessfully()
             case .failure(let value):
                 self?.view?.showError(with: value.errors.joined(separator: ","))
@@ -54,5 +54,11 @@ class LoginViewModel{
     
     func toMainView(){
         self.router.navigateToMainView()
+    }
+    
+    func isLogged(){
+        if(self.dataManager.isLogged()){
+            self.toMainView()
+        }
     }
 }

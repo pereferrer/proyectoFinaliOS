@@ -88,7 +88,9 @@ extension RegisterViewController{
             alert.present(in: self){ }
         }else{
             let alert = AlertViewPresenter(title: "User Created", message: "Check your mail to activate the account", acceptTitle: "Understood")
-            alert.present(in: self){ }
+            alert.present(in: self){
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
 }

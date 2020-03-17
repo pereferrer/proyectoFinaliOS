@@ -7,80 +7,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2ADC3801-510C-414A-A4B5-375AD56C02CB"
+            uuid = "663E7671-46F4-43C5-9173-42949CDACA8C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "proyectoFinaliOS/Sources/Views/Login/LoginViewModel.swift"
+            filePath = "proyectoFinaliOS/Sources/Data/Remote/APIClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "didTapInForgotPassword(login:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "send(request:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "663E7671-46F4-43C5-9173-42949CDACA8C - 4422b6f50beb9acc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in proyectoFinaliOS.SessionAPI.send&lt;A where A: proyectoFinaliOS.APIRequest&gt;(request: A, completion: (Swift.Result&lt;A.Response, proyectoFinaliOS.ApiErrorResponse&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "proyectoFinaliOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/perejosepferrerventura/Documents/Proyecto%20final/iOS/proyectoFinaliOS/proyectoFinaliOS/Sources/Data/Remote/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "2515">
+               </Location>
+               <Location
+                  uuid = "663E7671-46F4-43C5-9173-42949CDACA8C - 227d4ddc52823ad0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in proyectoFinaliOS.SessionAPI.send&lt;A where A: proyectoFinaliOS.APIRequest&gt;(request: A, completion: (Swift.Result&lt;A.Response, proyectoFinaliOS.ApiErrorResponse&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "proyectoFinaliOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/perejosepferrerventura/Documents/Proyecto%20final/iOS/proyectoFinaliOS/proyectoFinaliOS/Sources/Data/Remote/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "235">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2969FF4B-1848-4E50-8A34-8010BF81027E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "proyectoFinaliOS/Sources/Views/Login/LoginViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "LoginViewModel"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "38C032AB-4BA7-41E6-9A0D-98D7DCB78B85"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "proyectoFinaliOS/Sources/Views/DetailUser/DetailUserViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "getPrivateMessageList(username:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BCFBD7C7-40EA-4D04-A283-A58A711813FB"
+            uuid = "21F4A806-00FF-489E-B985-3105D2CB99AC"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "proyectoFinaliOS/Sources/Views/Login/LoginViewController.swift"
+            filePath = "proyectoFinaliOS/Sources/Data/Remote/APIClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "loginSuccessfully()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0748A001-8E51-4BA0-A8BC-CCBBC956B621"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "proyectoFinaliOS/Sources/Views/CategoriesTopics/CategoriesTopicsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "send(request:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

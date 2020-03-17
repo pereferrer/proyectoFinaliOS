@@ -49,11 +49,11 @@ extension DetailUserViewController: DetailUserViewControllerProtocol{
     }
     
     func showDetailUserSuccessfully(detailUser:DetailUserResponse) {
-        self.nameText.text = detailUser.name
-        self.usernameText.text = detailUser.username
-        self.statusText.text = detailUser.moderator == true ? "Is moderator" : "Not moderator"
-        self.lastSeenText.text = detailUser.last_seen_at
-        let urlString = "https://mdiscourse.keepcoding.io" + detailUser.avatar_template.replacingOccurrences(of: "{size}", with: "120")
+        self.nameText.text = detailUser.user.name
+        self.usernameText.text = detailUser.user.username
+        self.statusText.text = detailUser.user.moderator == true ? "Is moderator" : "Not moderator"
+        self.lastSeenText.text = detailUser.user.last_seen_at
+        let urlString = "https://mdiscourse.keepcoding.io" + detailUser.user.avatarTemplate!.replacingOccurrences(of: "{size}", with: "120")
         let url = URL(string: urlString)!
         print(urlString)
         self.avatarImage.load(url: url)
