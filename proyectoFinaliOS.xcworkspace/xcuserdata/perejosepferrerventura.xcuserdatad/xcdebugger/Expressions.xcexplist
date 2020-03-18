@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "PostsByTopicViewController.tableView(_:cellForRowAt:):PostsByTopicViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "posts[indexPath.row].title">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "LoginViewModel.isLogged():LoginViewModel.swift">
          <PersistentStrings>
             <PersistentString

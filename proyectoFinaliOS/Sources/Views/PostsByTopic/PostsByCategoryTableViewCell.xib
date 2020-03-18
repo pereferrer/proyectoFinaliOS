@@ -7,9 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="SF-Pro-Text-Bold.otf">
-            <string>SFProText-Bold</string>
-        </array>
         <array key="SF-Pro-Text-Regular.otf">
             <string>SFProText-Regular</string>
         </array>
@@ -24,40 +21,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ppe-Ry-iJG">
-                        <rect key="frame" x="16" y="18" width="174" height="28"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconlogo" translatesAutoresizingMaskIntoConstraints="NO" id="3aB-tK-ax1">
-                                <rect key="frame" x="0.0" y="0.0" width="34" height="28"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpM-sg-jSD">
-                                <rect key="frame" x="38" y="0.0" width="16" height="28"/>
-                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPeople" translatesAutoresizingMaskIntoConstraints="NO" id="wWV-Hs-y1t">
-                                <rect key="frame" x="58" y="0.0" width="26" height="28"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xyd-xy-Ple">
-                                <rect key="frame" x="88" y="0.0" width="16" height="28"/>
-                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCalendar" translatesAutoresizingMaskIntoConstraints="NO" id="0xY-Zd-RGo">
-                                <rect key="frame" x="108" y="0.0" width="24" height="28"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jul 23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KN3-sJ-TMt">
-                                <rect key="frame" x="136" y="0.0" width="38" height="28"/>
-                                <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="14"/>
-                                <color key="textColor" red="0.047058823530000002" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nb-zo-oIu">
-                        <rect key="frame" x="16" y="64" width="273" height="236"/>
+                        <rect key="frame" x="16" y="27" width="288" height="246"/>
                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sagittis felis eu ornare interdum. Donec a est vitae lectus imperdiet blandit. Duis commodo erat justo, ut sollicitudin nibh sagittis ut. Fusce interdum felis in congue tincidunt. </string>
                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                         <nil key="textColor"/>
@@ -65,12 +30,12 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Ppe-Ry-iJG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="7Op-nE-tgn"/>
-                    <constraint firstItem="1Nb-zo-oIu" firstAttribute="leading" secondItem="Ppe-Ry-iJG" secondAttribute="leading" id="LnA-SD-Izn"/>
-                    <constraint firstAttribute="bottom" secondItem="1Nb-zo-oIu" secondAttribute="bottom" id="a7B-iG-LXt"/>
-                    <constraint firstItem="1Nb-zo-oIu" firstAttribute="top" secondItem="Ppe-Ry-iJG" secondAttribute="bottom" constant="18" id="pK4-qW-R0v"/>
-                    <constraint firstItem="Ppe-Ry-iJG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="rz8-Ka-kTM"/>
-                    <constraint firstAttribute="trailing" secondItem="1Nb-zo-oIu" secondAttribute="trailing" constant="31" id="tp8-p2-rXP"/>
+                    <constraint firstAttribute="trailing" secondItem="1Nb-zo-oIu" secondAttribute="trailing" constant="16" id="KO9-z8-qNt"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="1Nb-zo-oIu" secondAttribute="bottom" constant="16" id="MFx-fl-JvA"/>
+                    <constraint firstItem="1Nb-zo-oIu" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Yb5-mb-Mj3"/>
+                    <constraint firstItem="1Nb-zo-oIu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="eKH-TW-VCo"/>
+                    <constraint firstItem="1Nb-zo-oIu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="prV-x5-Iux"/>
+                    <constraint firstItem="1Nb-zo-oIu" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yJ2-Kp-Ytb"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -80,9 +45,4 @@
             <point key="canvasLocation" x="-14.492753623188406" y="110.49107142857143"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="iconCalendar" width="12" height="14"/>
-        <image name="iconPeople" width="13" height="14"/>
-        <image name="iconlogo" width="17" height="14"/>
-    </resources>
 </document>

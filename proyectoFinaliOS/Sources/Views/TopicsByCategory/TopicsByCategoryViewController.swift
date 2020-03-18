@@ -144,8 +144,13 @@ extension TopicsByCategoryViewController{
 
 extension TopicsByCategoryViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let id = self.topics[indexPath.row].id
-        viewModel.didTapInTopic(id: id, topicTitle: self.topics[indexPath.row].title)
+        if (resultSearchController.isActive) {
+            let id = self.topicsFiltered[indexPath.row].id
+            viewModel.didTapInTopic(id: id, topicTitle: self.topicsFiltered[indexPath.row].title)
+        } else {
+            let id = self.topics[indexPath.row].id
+            viewModel.didTapInTopic(id: id, topicTitle: self.topics[indexPath.row].title)
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

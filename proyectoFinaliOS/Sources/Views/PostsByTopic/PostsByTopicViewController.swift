@@ -173,7 +173,7 @@ extension PostsByTopicViewController: UITableViewDataSource{
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -182,23 +182,10 @@ extension PostsByTopicViewController: UITableViewDataSource{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostsByCategoryTableViewCell else {
                 return UITableViewCell()
             }
-            //cell.textLabel?.text = posts[indexPath.row].title
-            //cell.textDescription.sizeToFit()
-            return cell
-        }else if(indexPath.section == 1){
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifierNotRegistered, for: indexPath) as? NotRegisteredTableViewCell else {
-                return UITableViewCell()
-            }
-            return cell
-        }else if(indexPath.section == 2){
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifierSuggestedTopicsTableViewCell, for: indexPath) as? SuggestedTopicsTableViewCell else {
-                return UITableViewCell()
-            }
-            cell.configureCell()
+            cell.textDescription?.text = posts[indexPath.row].title
+            cell.textDescription.sizeToFit()
             return cell
         }
-        
-        
         return UITableViewCell()
     }
 }
