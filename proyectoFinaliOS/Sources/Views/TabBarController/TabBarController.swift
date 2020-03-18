@@ -11,13 +11,11 @@ import UIKit
 class TabBarController: UITabBarController {
 
     let topicsController: UIViewController
-    let categoriesController: UIViewController
     let createTopicController: UIViewController
     let detailUserController: UIViewController
     
-    init(topicsController: UIViewController, categoriesController: UIViewController, createTopicController: UIViewController, detailUserController: UIViewController) {
+    init(topicsController: UIViewController, createTopicController: UIViewController, detailUserController: UIViewController) {
         self.topicsController = topicsController
-        self.categoriesController = categoriesController
         self.createTopicController = createTopicController
         self.detailUserController = detailUserController
         
@@ -36,9 +34,9 @@ class TabBarController: UITabBarController {
     
     private func configureTabBar() {
         
-        let categoriesController = self.categoriesController
-        categoriesController.tabBarItem = UITabBarItem(title: "Categories", image: UIImage(named: "baseline_list_black_18dp"), selectedImage: nil)
-        categoriesController.title = "Categories"
+        let topicsController = self.topicsController
+        topicsController.tabBarItem = UITabBarItem(title: "Topics", image: UIImage(named: "baseline_list_black_18dp"), selectedImage: nil)
+        topicsController.title = "Topics"
         
         let createTopicController = self.createTopicController
         createTopicController.tabBarItem = UITabBarItem(title: "Create topic", image: UIImage(named: "baseline_add_black_18dp"), selectedImage: nil)
@@ -51,7 +49,7 @@ class TabBarController: UITabBarController {
         self.tabBar.tintColor = UIColor(rgb: 0xF39000)
         self.tabBar.unselectedItemTintColor = .black
         self.tabBar.barTintColor = .white
-        let controllers = [categoriesController, createTopicController, detailUserController]
+        let controllers = [topicsController, createTopicController, detailUserController]
         self.viewControllers = controllers.map { UINavigationController(rootViewController: $0) }
     }
 }

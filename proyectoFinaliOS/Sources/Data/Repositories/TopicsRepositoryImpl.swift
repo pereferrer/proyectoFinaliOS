@@ -29,14 +29,7 @@ class TopicsRepositoryImpl: TopicsRepository {
             completion(result)
         }
     }
-    
-    func getCategories(completion: @escaping (Result<CategoriesTopicsResponse, ApiErrorResponse>) -> ()) {
-        let request = CategoriesTopicsRequest()
-        session.send(request: request){ result in
-            completion(result)
-        }
-    }
-    
+        
     func getTopicsByCategoryId(id: Int, completion: @escaping (Result<TopicsByCategoryResponse, ApiErrorResponse>) -> ()) {
         let request = TopicsByCategoryRequest(id: id)
         session.send(request: request){result in

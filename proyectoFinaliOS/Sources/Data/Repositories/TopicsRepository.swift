@@ -11,7 +11,6 @@ import Foundation
 protocol TopicsRepository {
     func getSingleTopicById(id: Int, completion: @escaping(Result<SingleTopicResponse, ApiErrorResponse>) -> ())
     func getLatestTopics(completion: @escaping(Result<LatestTopicsResponse, ApiErrorResponse>) -> ())
-    func getCategories(completion: @escaping(Result<CategoriesTopicsResponse, ApiErrorResponse>)-> ())
     func getTopicsByCategoryId(id: Int, completion: @escaping(Result<TopicsByCategoryResponse, ApiErrorResponse>)-> ())
     func createPostToTopicId(id: Int, raw: String, completion: @escaping(Result<AddNewTopicResponse, ApiErrorResponse>)-> ())
     func updateSingleTopic(id: Int, slug:String, title:String, completion: @escaping(Result<SingleTopicUpdateResponse, ApiErrorResponse>)->())

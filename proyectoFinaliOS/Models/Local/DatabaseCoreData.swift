@@ -33,43 +33,6 @@ class DatabaseCoreData: DataManagerDelegate {
     
     //Mark: Inserts
     
-    func insertCategories(categoriesTopicsResponse:CategoriesTopicsResponse) {
-        guard let context = managedObjectContext(),
-            let entity = NSEntityDescription.entity(forEntityName: entity_category, in: context) else{
-                return
-        }
-        
-        for singleCategory in categoriesTopicsResponse.categoryList.categories{
-            let category = NSManagedObject(entity: entity, insertInto: context)
-            category.setValue(Int32(singleCategory.id), forKey: "id")
-            category.setValue(singleCategory.name, forKey: "title")
-        }
-        
-        do{
-            try context.save()
-        }catch{
-            print("Error al guardar las categorias")
-        }
-    }
-    
-    func insertCategory(singleCategory: SingleCategory) {
-        guard let context = managedObjectContext(),
-            let entity = NSEntityDescription.entity(forEntityName: entity_category, in: context) else{
-                return
-        }
-        
-        let category = NSManagedObject(entity: entity, insertInto: context)
-        category.setValue(Int32(singleCategory.id), forKey: "id")
-        category.setValue(singleCategory.name, forKey: "title")
-       
-        
-        do{
-            try context.save()
-        }catch{
-            print("Error al guardar una categoria")
-        }
-    }
-    
     func insertTopics(topicsByCategoryResponse: TopicsByCategoryResponse){
         
         
@@ -433,29 +396,6 @@ class DatabaseCoreData: DataManagerDelegate {
         }catch{
             print("Error al obtener los datos")
             return Array()
-        }
-    }
-   
-    //Mark: Updates
-    func update(category: SingleCategory) {
-        guard let context = managedObjectContext() else{
-            return
-        }
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity_category)
-        fetchRequest.predicate = NSPredicate(format: "\(entity_key_id) = \(category.id)")
-        
-        do{
-            guard let data = try context.fetch(fetchRequest) as? [NSManagedObject] else {
-                return
-            }
-            
-            let dataUpdate = data[0]
-            dataUpdate.setValue(category.name, forKey: entity_key_title)
-            try context.save()
-            
-        }catch{
-            print("error asl actualizar la category")
         }
     }
     

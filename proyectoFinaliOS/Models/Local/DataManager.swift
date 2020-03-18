@@ -10,8 +10,6 @@ import Foundation
 
 protocol DataManagerDelegate {
 
-    func insertCategories(categoriesTopicsResponse:CategoriesTopicsResponse)
-    func insertCategory(singleCategory: SingleCategory)
     func insertTopics(topicsByCategoryResponse: TopicsByCategoryResponse)
     func insertPosts(singleTopicResponse: SingleTopicResponse)
     func deleteCategoriesBy(id: Int32)
@@ -23,7 +21,6 @@ protocol DataManagerDelegate {
     func selectPostsByTopic(id: Int32)->Array<PostModel>
     func selectTopicsByCategory(id: Int32)->Array<TopicModel>
     func selectCategories()->Array<CategoryModel>
-    func update(category: SingleCategory)
     func update(topic: Topic)
     func update(post: Post)
     func insertTopic(singleTopic: Topic)
@@ -45,14 +42,6 @@ class DataManager{
 //Mark: - Extension DataManager For CoreData
 
 extension DataManager {
-    
-    func insertCategories(categoriesTopicsResponse:CategoriesTopicsResponse) {
-        mDatabaseProvider.insertCategories(categoriesTopicsResponse: categoriesTopicsResponse)
-    }
-    
-    func insertCategory(singleCategory: SingleCategory){
-        mDatabaseProvider.insertCategory(singleCategory: singleCategory)
-    }
     
     func insertTopics(topicsByCategoryResponse: TopicsByCategoryResponse){
         mDatabaseProvider.insertTopics(topicsByCategoryResponse: topicsByCategoryResponse)
@@ -104,10 +93,6 @@ extension DataManager {
     
     func selectCategories()->Array<CategoryModel>{
         return mDatabaseProvider.selectCategories()
-    }
-    
-    func update(category: SingleCategory){
-        mDatabaseProvider.update(category: category)
     }
     
     func update(topic: Topic){
