@@ -23,7 +23,7 @@ struct TopicsByCategoryRequest: APIRequest {
     }
     
     var path: String {
-        return "/c/\(id).json"
+        return "/latest.json"
     }
     
     var parameters: [String : String] {
