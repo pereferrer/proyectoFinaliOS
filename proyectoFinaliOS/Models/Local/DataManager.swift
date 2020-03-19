@@ -12,15 +12,12 @@ protocol DataManagerDelegate {
 
     func insertTopics(topicsByCategoryResponse: TopicsByCategoryResponse)
     func insertPosts(singleTopicResponse: SingleTopicResponse)
-    func deleteCategoriesBy(id: Int32)
     func deleteTopicsBy(id: Int32)
     func deletePostsBy(id: Int32)
-    func checkIfCategoryExistBy(id: Int32) ->Bool
     func checkIfTopicExistBy(id: Int32) ->Bool
     func checkIfPostExistBy(id: Int32) ->Bool
     func selectPostsByTopic(id: Int32)->Array<PostModel>
     func selectTopicsByCategory(id: Int32)->Array<TopicModel>
-    func selectCategories()->Array<CategoryModel>
     func update(topic: Topic)
     func update(post: Post)
     func insertTopic(singleTopic: Topic)
@@ -59,20 +56,12 @@ extension DataManager {
         mDatabaseProvider.insertPost(postResponse: postResponse)
     }
     
-    func deleteCategoriesBy(id: Int32){
-        mDatabaseProvider.deleteCategoriesBy(id: id)
-    }
-    
     func deleteTopicsBy(id: Int32){
         mDatabaseProvider.deleteTopicsBy(id: id)
     }
     
     func deletePostsBy(id: Int32) {
         mDatabaseProvider.deletePostsBy(id: id)
-    }
-    
-    func checkIfCategoryExistBy(id: Int32)->Bool{
-        return mDatabaseProvider.checkIfCategoryExistBy(id: id)
     }
     
     func checkIfTopicExistBy(id: Int32) ->Bool{
@@ -89,10 +78,6 @@ extension DataManager {
     
     func selectTopicsByCategory(id: Int32)->Array<TopicModel>{
         return mDatabaseProvider.selectTopicsByCategory(id: id)
-    }
-    
-    func selectCategories()->Array<CategoryModel>{
-        return mDatabaseProvider.selectCategories()
     }
     
     func update(topic: Topic){

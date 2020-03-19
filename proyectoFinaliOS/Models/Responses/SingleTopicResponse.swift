@@ -16,7 +16,7 @@ struct SingleTopicResponse: Codable {
     
     let postStream: PostStream
     
-    let timelineLookup: [[Int]]
+    let timelineLookup: [[Int]]?
     
     let suggestedTopics: [SuggestedTopic]?
     
@@ -44,7 +44,7 @@ struct SingleTopicResponse: Codable {
     
     let archived: Bool
     
-    let hasSummary: Bool
+    let hasSummary: Bool?
     
     let archetype: String
     
@@ -54,13 +54,13 @@ struct SingleTopicResponse: Codable {
     
     let wordCount: Int
     
-    let userID: Int
+    let userID: Int?
     
-    let pinnedGlobally: Bool
+    let pinnedGlobally: Bool?
     
-    let draftKey: String
+    let draftKey: String?
     
-    let draftSequence: Int
+    let draftSequence: Int?
     
     let posted: Bool?
     
@@ -256,7 +256,7 @@ struct CreatedBy: Codable {
     
     let username: String
     
-    let name: String
+    let name: String?
     
     let avatarTemplate: String
     
@@ -286,7 +286,7 @@ struct Participant: Codable {
     
     let username: String
     
-    let name: String
+    let name: String?
     
     let avatarTemplate: String
     
@@ -340,7 +340,7 @@ struct Post: Codable {
     
     let id: Int
     
-    let name: String
+    let name: String?
     
     let username: String
     
@@ -372,7 +372,7 @@ struct Post: Codable {
     
     let topicSlug: String
     
-    let displayUsername: String
+    let displayUsername: String?
     
     let version: Int
     
@@ -385,8 +385,6 @@ struct Post: Codable {
     let canWiki: Bool
     
     let read: Bool
-    
-    let bookmarked: Bool?
     
     let actionsSummary: [PostActionsSummary]
     
@@ -459,8 +457,6 @@ struct Post: Codable {
         case canWiki = "can_wiki"
         
         case read = "read"
-        
-        case bookmarked = "bookmarked"
         
         case actionsSummary = "actions_summary"
         

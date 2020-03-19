@@ -13,7 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private let databaseCoreDataName = "proyectoFinaliOS"
+    private let databaseCoreDataName = "EhHoDB"
     lazy var persistentContainer: NSPersistentContainer = {
         let container =  NSPersistentContainer(name: databaseCoreDataName)
         container.loadPersistentStores(completionHandler: {(storeDescription, error) in
@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        checkNetwork()
         
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         print(paths[0])
@@ -51,5 +53,19 @@ extension AppDelegate{
             }
         }
     }
+    
+    func checkNetwork(){
+           if #available(iOS 12.0, *) {
+               let networkStatus = CheckInternetStatus()
+               networkStatus.checkConnetionStatus()
+           } else {
+               // Fallback on earlier versions
+           }
+       }
+       
+       func setLastSyncData(){
+           let dataManager = DataManager()
+           dataManager.saveLastSync(date: Date())
+       }
 }
 

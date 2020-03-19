@@ -21,7 +21,7 @@ import UIKit
 import CoreData
 
 
-class DatabaseCoreData: DataManagerDelegate {
+class DatabaseCoreData: DataManagerDelegate {  
 
     private let entity_key_id = "id"
     private let entity_post = "PostCD"
@@ -47,22 +47,6 @@ class DatabaseCoreData: DataManagerDelegate {
             topic.setValue(Int32(currentTopic.id), forKey: "id")
             topic.setValue(currentTopic.title, forKey: "title")
             topic.setValue(Int32(currentTopic.views), forKey: "visits")
-            
-            
-            //Recupero la categoria para relacionar el topic con su categoria. 1 topic una categoria - 1 categoria muchos topics.
-            do{
-                let categoryFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity_category)
-                categoryFetchRequest.predicate = NSPredicate(format: "\(entity_key_id) = \(currentTopic.categoryID)")
-                
-                guard let dataCategory = try context.fetch(categoryFetchRequest) as? [NSManagedObject] else {
-                    return
-                }
-                
-                let categoryToUpdate = dataCategory[0]
-                categoryToUpdate.mutableSetValue(forKeyPath: "topics").add(topic)
-            }catch{
-                print("Error al recuperar la categoria")
-            }
             
         }
         do{
@@ -184,26 +168,6 @@ class DatabaseCoreData: DataManagerDelegate {
     
     //Mark: Delete with cascade rule.
     
-    //With this function all data are deleted because cascade rule is enabled
-    func deleteCategoriesBy(id: Int32) {
-        guard let context = managedObjectContext() else{
-            return
-        }
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity_category)
-        fetchRequest.predicate = NSPredicate(format: "\(entity_key_id) = \(id)")
-        
-        do{
-            guard let data = try context.fetch(fetchRequest) as? [NSManagedObject] else{
-                return
-            }
-            data.forEach{context.delete($0)}
-            try context.save()
-        }catch{
-            print("Error al eliminar todos los datos")
-        }
-    }
-    
     //With this function all Topics and Posts are deleted because cascade rule is enabled
     func deleteTopicsBy(id: Int32) {
         guard let context = managedObjectContext() else{
@@ -245,29 +209,6 @@ class DatabaseCoreData: DataManagerDelegate {
     }
     
     //Mark: Checks objects in Bd
-    func checkIfCategoryExistBy(id: Int32) ->Bool{
-        guard let context = managedObjectContext() else{
-            return false
-        }
-        
-        let categoryFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity_category)
-        categoryFetchRequest.predicate = NSPredicate(format: "\(entity_key_id) = \(id)")
-        
-        do{
-            guard let dataCategory = try context.fetch(categoryFetchRequest) as? [NSManagedObject] else{
-                return false
-            }
-            
-            if (dataCategory.count < 1){
-                return false
-            }
-        
-        }catch{
-            print("Error al recuperar las categorias")
-        }
-        
-        return true
-    }
     
     func checkIfTopicExistBy(id: Int32) ->Bool{
         guard let context = managedObjectContext() else{
@@ -319,37 +260,11 @@ class DatabaseCoreData: DataManagerDelegate {
     
     //Mark: Selects
     
-    func selectCategories()->Array<CategoryModel>{
-        guard let context = managedObjectContext() else {
-            return Array()
-        }
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity_category)
-        do{
-            guard let data = try context.fetch(fetchRequest) as? [NSManagedObject] else{
-                return Array()
-            }
-            
-            let categoriesData:Array<CategoryModel> = data.compactMap{categoryBD in
-                guard let id = categoryBD.value(forKey: entity_key_id) as? Int,
-                    let title = categoryBD.value(forKey: entity_key_title) as? String else{
-                        return nil
-                        
-                }
-                return CategoryModel(id: id, title: title)
-            }
-            return categoriesData
-        }catch{
-            print("Error al obtener los datos")
-            return Array()
-        }
-    }
-    
     func selectTopicsByCategory(id: Int32)->Array<TopicModel>{
         guard let context = managedObjectContext() else {
             return Array()
         }
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity_topic)
-        fetchRequest.predicate = NSPredicate(format: "category.id = \(id)")
 
         do{
             guard let data = try context.fetch(fetchRequest) as? [NSManagedObject] else{
