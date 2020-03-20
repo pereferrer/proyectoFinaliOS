@@ -28,8 +28,10 @@ class TopicsByCategoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell() {
+    func configureCell(urlsString: String) {
+        let finalUrlString = "https://mdiscourse.keepcoding.io" + urlsString.replacingOccurrences(of: "{size}", with: "120")
+        let url = URL(string: finalUrlString)!
+        self.profileImage.load(url: url)
         self.profileImage.roundImage()
     }
-    
 }

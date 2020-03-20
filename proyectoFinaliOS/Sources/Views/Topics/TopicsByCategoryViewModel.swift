@@ -46,10 +46,17 @@ class TopicsByCategoryViewModel {
                         }
                         
                         let topicsData:Array<TopicModel> = value.topicList.topics.compactMap{topics in
+                            let userId = topics.posters[0].userID
+                            var avatar_template: String = ""
+                            for user in value.users{
+                                if userId == user.id{
+                                    avatar_template = user.avatarTemplate ?? ""
+                                }
+                            }
                             let id = topics.id
                             let title = topics.title
                             let visits = topics.views
-                            return TopicModel(id: id, title: title, visits: visits)
+                            return TopicModel(avatar_template: avatar_template, id: id, title: title, visits: visits)
                         }
                         
                         self.view?.showTopics(topics: topicsData)

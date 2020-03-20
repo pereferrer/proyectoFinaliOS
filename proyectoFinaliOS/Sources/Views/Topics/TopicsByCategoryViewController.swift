@@ -180,7 +180,7 @@ extension TopicsByCategoryViewController: UITableViewDataSource{
                 return UITableViewCell()
             }
             
-            cell.configureCell()
+            cell.configureCell(urlsString: topicsFiltered[indexPath.row].avatar_template)
             cell.titleLabel.text = topicsFiltered[indexPath.row].title
             cell.countVisits.text = String(topicsFiltered[indexPath.row].visits)
             
@@ -191,7 +191,7 @@ extension TopicsByCategoryViewController: UITableViewDataSource{
                 return UITableViewCell()
             }
             
-            cell.configureCell()
+            cell.configureCell(urlsString: topics[indexPath.row].avatar_template)
             cell.titleLabel.text = topics[indexPath.row].title
             cell.countVisits.text = String(topics[indexPath.row].visits)
             

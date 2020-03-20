@@ -10,13 +10,14 @@ import Foundation
 
 class TopicModel {
     
+    var avatar_template = ""
     var id:Int = -1
     var title: String = ""
     var visits:Int = 0
     
-    convenience init(id: Int = -1, title:String, visits:Int){
+    convenience init(avatar_template: String = "", id: Int = -1, title:String, visits:Int){
         self.init()
-        
+        self.avatar_template = avatar_template
         self.id = id
         self.title = title
         self.visits = visits
