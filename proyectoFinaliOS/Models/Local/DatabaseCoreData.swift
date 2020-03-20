@@ -25,7 +25,6 @@ class DatabaseCoreData: DataManagerDelegate {
 
     private let entity_key_id = "id"
     private let entity_post = "PostCD"
-    private let entity_category = "CategoryCD"
     private let entity_topic = "TopicCD"
     private let entity_key_title = "title"
     private let entity_key_visits = "visits"
@@ -69,21 +68,6 @@ class DatabaseCoreData: DataManagerDelegate {
         topic.setValue(singleTopic.title, forKey: "title")
         topic.setValue(Int32(singleTopic.views), forKey: "visits")
         
-        
-        //Recupero la categoria para relacionar el topic con su categoria. 1 topic una categoria - 1 categoria muchos topics.
-        do{
-            let categoryFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity_category)
-            categoryFetchRequest.predicate = NSPredicate(format: "\(entity_key_id) = \(singleTopic.categoryID)")
-            
-            guard let dataCategory = try context.fetch(categoryFetchRequest) as? [NSManagedObject] else {
-                return
-            }
-            
-            let categoryToUpdate = dataCategory[0]
-            categoryToUpdate.mutableSetValue(forKeyPath: "topics").add(topic)
-        }catch{
-            print("Error al recuperar la categoria")
-        }
         
         do{
             try context.save()

@@ -68,7 +68,7 @@ class PostsByTopicViewModel {
                         }
                         
                         let postsData:Array<PostModel> = value.postStream.posts.compactMap{posts in
-                            let id = posts.id
+                            let id = posts.topicID
                             let title = posts.cooked.deleteHtmlTags()
                             return PostModel(id: id, title: title)
                         }

@@ -38,6 +38,7 @@ class TopicsRepositoryImpl: TopicsRepository {
     }
     
     func createPostToTopicId(id: Int, raw: String, completion: @escaping (Result<AddNewTopicResponse, ApiErrorResponse>) -> ()) {
+        print("el id es \(id) y el raw es \(raw)")
         let request = CreatePostsToTopicRequest(topicId: id, raw: raw)
         session.send(request: request){result in
             completion(result)
