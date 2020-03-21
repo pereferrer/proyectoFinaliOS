@@ -59,7 +59,7 @@ class TopicsByCategoryViewModel {
                             return TopicModel(avatar_template: avatar_template, id: id, title: title, visits: visits)
                         }
                         
-                        self.view?.showTopics(topics: topicsData)
+                        self.view?.showTopics(topics: topicsData, urlMoreTopics: value.topicList.moreTopicsUrl ?? "")
                     case .failure(let value):
                         self.view?.showError(with: value.errors.joined(separator: ","))
                         break
@@ -67,7 +67,46 @@ class TopicsByCategoryViewModel {
                 }
             }else{//Si no hay conexión
                 let topicsData = self.dataManager.selectTopicsByCategory(id: Int32(id))
-                self.view?.showTopics(topics: topicsData)
+                self.view?.showTopics(topics: topicsData, urlMoreTopics: "")
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    func loadMoreTopics(page:String, definitions:String) {
+        if #available(iOS 12.0, *) {
+            if(networkStatus){//Si hay conexión a internet muestro los datos obtenidos de la api
+                topicsRepository.getTopicsByCategoryIdAndPage(id: 0, page: page, definitions: definitions){ result in
+                    switch result {
+                    case .success(let value):
+                        if(self.dataManager.canInsertToCoreData()){//Compruebo si ha pasado el tiempo mínimo para poder actualizar CoreData -> El sync del Date que se guarda en las preferencias se establece en el appDelegate al cerrar la app o al pasar a Background
+                            self.insertTopicsToCoreDataBy(idCategory: Int32(self.id), topicsCategoryResponse: value)
+                        }
+                        
+                        let topicsData:Array<TopicModel> = value.topicList.topics.compactMap{topics in
+                            let userId = topics.posters[0].userID
+                            var avatar_template: String = ""
+                            for user in value.users{
+                                if userId == user.id{
+                                    avatar_template = user.avatarTemplate ?? ""
+                                }
+                            }
+                            let id = topics.id
+                            let title = topics.title
+                            let visits = topics.views
+                            return TopicModel(avatar_template: avatar_template, id: id, title: title, visits: visits)
+                        }
+                        
+                        self.view?.loadMoreTopics(topics: topicsData,urlMoreTopics: value.topicList.moreTopicsUrl ?? "")
+                    case .failure(let value):
+                        self.view?.showError(with: value.errors.joined(separator: ","))
+                        break
+                    }
+                }
+            }else{//Si no hay conexión
+                let topicsData = self.dataManager.selectTopicsByCategory(id: Int32(id))
+                self.view?.showTopics(topics: topicsData, urlMoreTopics: "")
             }
         } else {
             // Fallback on earlier versions
@@ -86,7 +125,6 @@ class TopicsByCategoryViewModel {
                     if let topicToUpdateInCD = topicsCategoryResponse.topicList.topics.first(where: {$0.id == currentTopic.id}){
                         self.dataManager.update(topic: topicToUpdateInCD)
                     }
-                    print("El objeto SI existe")
                 } else {//Si no existe la topic devuelta por cd en la api, la elimino de CD.
                     self.dataManager.deleteTopicsBy(id: Int32(currentTopic.id))
                     print("El objeto NO existe")

@@ -58,4 +58,11 @@ class TopicsRepositoryImpl: TopicsRepository {
             completion(result)
         }
     }
+    
+    func getTopicsByCategoryIdAndPage(id: Int, page: String, definitions:String, completion: @escaping (Result<TopicsByCategoryResponse, ApiErrorResponse>) -> ()) {
+        let request = LatestTopicsRequestByPage(page: page, definitions: definitions)
+        session.send(request: request){result in
+            completion(result)
+        }
+    }
 }

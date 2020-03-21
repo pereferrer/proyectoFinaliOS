@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "TopicsByCategoryViewController.scrollViewDidScroll(_:):TopicsByCategoryViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.urlMoreTopics">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PostsByTopicViewController.tableView(_:cellForRowAt:):PostsByTopicViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,15 +19,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "CategoriesTopicsViewController.viewDidLoad():CategoriesTopicsViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "LoginViewModel.isLogged():LoginViewModel.swift">
          <PersistentStrings>
             <PersistentString
                value = "self.dataManager.isLogged()">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "CategoriesTopicsViewController.viewDidLoad():CategoriesTopicsViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

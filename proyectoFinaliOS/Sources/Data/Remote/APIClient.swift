@@ -20,6 +20,7 @@ final class SessionAPI {
     
     func send<T: APIRequest>(request: T, completion: @escaping(Result<T.Response, ApiErrorResponse>) -> ()) {
         let request = request.requestWithBaseUrl()
+        print("La url destino es \(request.debugDescription)")
         let task = session.dataTask(with: request) { data, response, error in
             do {
                 if let data = data {

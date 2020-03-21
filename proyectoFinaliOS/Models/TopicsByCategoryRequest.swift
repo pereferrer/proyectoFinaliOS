@@ -38,3 +38,37 @@ struct TopicsByCategoryRequest: APIRequest {
         return [:]
     }
 }
+
+
+struct LatestTopicsRequestByPage: APIRequest {
+    
+    typealias Response = TopicsByCategoryResponse
+    let page: String
+    let definitions: String
+    
+    init(page: String, definitions: String) {
+        self.page = page
+        self.definitions = definitions
+    }
+    
+    var method: Method {
+        return .GET
+    }
+    
+    var path: String {
+        return "/latest.json"
+    }
+    
+    var parameters: [String : String] {
+        return ["no_definitions":self.definitions, "page":self.page]
+    }
+    
+    var body: [String : Any] {
+        return [:]
+    }
+    
+    var headers: [String : String] {
+        return [:]
+    }
+
+}

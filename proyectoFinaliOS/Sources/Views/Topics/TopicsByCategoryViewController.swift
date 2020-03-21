@@ -18,6 +18,8 @@ class TopicsByCategoryViewController: UIViewController {
     var topics:[TopicModel] = []
     var topicsFiltered:[TopicModel] = []
     var resultSearchController = UISearchController()
+    var urlMoreTopics: String?
+    var isLoading = false
 
     
     init(viewModel: TopicsByCategoryViewModel){
@@ -199,6 +201,29 @@ extension TopicsByCategoryViewController: UITableViewDataSource{
         }
     }
     
+     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastSectionIndex = tableView.numberOfSections - 1
+        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
+        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+           // print("this is the last cell")
+            let spinner = UIActivityIndicatorView(style: .gray)
+            spinner.startAnimating()
+            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+
+            self.tableView.tableFooterView = spinner
+            self.tableView.tableFooterView?.isHidden = false
+            if(urlMoreTopics != "" && urlMoreTopics != nil){
+                self.isLoading = true
+                let page = urlMoreTopics!.index(urlMoreTopics!.startIndex, offsetBy: +33)..<urlMoreTopics!.endIndex
+                let definitions = urlMoreTopics!.index(urlMoreTopics!.startIndex, offsetBy: +23)..<urlMoreTopics!.index(urlMoreTopics!.startIndex, offsetBy: +27)
+                viewModel.loadMoreTopics(page: String(urlMoreTopics![page]), definitions: String(urlMoreTopics![definitions]))
+            }else{
+                self.isLoading = false
+                self.tableView.tableFooterView?.isHidden = true
+            }
+        }
+    }
+        
 }
 
 extension TopicsByCategoryViewController: UISearchResultsUpdating{
@@ -221,14 +246,23 @@ extension TopicsByCategoryViewController: UISearchResultsUpdating{
 
 // MARK: - ViewModel Communication
 protocol TopicsByCategoryViewControllerProtocol: class {
-    func showTopics(topics: [TopicModel])
+    func showTopics(topics: [TopicModel], urlMoreTopics:String)
     func showError(with message: String)
+    func loadMoreTopics(topics: [TopicModel], urlMoreTopics:String)
 }
 
 extension TopicsByCategoryViewController: TopicsByCategoryViewControllerProtocol{
     
-    func showTopics(topics: [TopicModel]) {
+    func showTopics(topics: [TopicModel], urlMoreTopics:String) {
         self.topics = topics
+        self.urlMoreTopics = urlMoreTopics
+        self.tableView.reloadData()
+    }
+    
+    func loadMoreTopics(topics: [TopicModel], urlMoreTopics:String){
+        self.isLoading = false
+        self.urlMoreTopics = urlMoreTopics
+        self.topics.append(contentsOf: topics)
         self.tableView.reloadData()
     }
     

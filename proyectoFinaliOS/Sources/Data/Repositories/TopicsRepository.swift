@@ -12,6 +12,7 @@ protocol TopicsRepository {
     func getSingleTopicById(id: Int, completion: @escaping(Result<SingleTopicResponse, ApiErrorResponse>) -> ())
     func getLatestTopics(completion: @escaping(Result<LatestTopicsResponse, ApiErrorResponse>) -> ())
     func getTopicsByCategoryId(id: Int, completion: @escaping(Result<TopicsByCategoryResponse, ApiErrorResponse>)-> ())
+    func getTopicsByCategoryIdAndPage(id: Int, page:String,definitions:String, completion: @escaping(Result<TopicsByCategoryResponse, ApiErrorResponse>)-> ())
     func createPostToTopicId(id: Int, raw: String, completion: @escaping(Result<AddNewTopicResponse, ApiErrorResponse>)-> ())
     func updateSingleTopic(id: Int, slug:String, title:String, completion: @escaping(Result<SingleTopicUpdateResponse, ApiErrorResponse>)->())
     func createTopic(title: String, raw: String, createAt: String, completion: @escaping(Result<AddNewTopicResponse, ApiErrorResponse>)-> ())

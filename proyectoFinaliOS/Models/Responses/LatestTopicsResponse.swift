@@ -17,6 +17,7 @@ struct Topic_List: Codable {
     let draftKey: String
     let draftSequence: Int
     let perPage: Int
+    let moreTopicsUrl: String?
     let topics: [Topic]
     
     enum CodingKeys: String, CodingKey {
@@ -24,6 +25,7 @@ struct Topic_List: Codable {
         case draftKey = "draft_key"
         case draftSequence = "draft_sequence"
         case perPage = "per_page"
+        case moreTopicsUrl = "more_topics_url"
         case topics
     }
 }

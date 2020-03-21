@@ -101,7 +101,6 @@ class PostsByTopicViewModel {
                     if let postToUpdateInCD = singleTopicResponse.postStream.posts.first(where: {$0.id == currentPost.id}){
                         self.dataManager.update(post: postToUpdateInCD)
                     }
-                    print("El objeto SI existe")
                 } else {//Si no existe la Post devuelta por cd en la api, la elimino de CD.
                     self.dataManager.deletePostsBy(id: Int32(currentPost.id))
                     print("El objeto NO existe")
