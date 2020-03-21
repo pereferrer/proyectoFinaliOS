@@ -10,6 +10,7 @@ import Foundation
 
 protocol TopicsRepository {
     func getSingleTopicById(id: Int, completion: @escaping(Result<SingleTopicResponse, ApiErrorResponse>) -> ())
+    func getSingleTopicPagination(id: Int, posts:[String:String], completion: @escaping(Result<SingleTopicPaginationResponse, ApiErrorResponse>) -> ())
     func getLatestTopics(completion: @escaping(Result<LatestTopicsResponse, ApiErrorResponse>) -> ())
     func getTopicsByCategoryId(id: Int, completion: @escaping(Result<TopicsByCategoryResponse, ApiErrorResponse>)-> ())
     func getTopicsByCategoryIdAndPage(id: Int, page:String,definitions:String, completion: @escaping(Result<TopicsByCategoryResponse, ApiErrorResponse>)-> ())

@@ -3,4 +3,70 @@
    uuid = "029967B0-929D-4687-9F54-54836AA70B29"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59B57FD0-2938-4206-945B-59A0CD4823C5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "proyectoFinaliOS/Sources/Views/PostsByTopic/PostsByTopicViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "fetchMorePostsInTopic(posts:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "59B57FD0-2938-4206-945B-59A0CD4823C5 - efd7b36f9605c2b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "proyectoFinaliOS.PostsByTopicViewModel.fetchMorePostsInTopic(posts: Swift.Dictionary&lt;Swift.String, Swift.String&gt;) -&gt; ()"
+                  moduleName = "proyectoFinaliOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/perejosepferrerventura/Documents/Proyecto%20final/iOS/proyectoFinaliOS/proyectoFinaliOS/Sources/Views/PostsByTopic/PostsByTopicViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "189">
+               </Location>
+               <Location
+                  uuid = "59B57FD0-2938-4206-945B-59A0CD4823C5 - f8f2417651449163"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;proyectoFinaliOS.SingleTopicPaginationResponse, proyectoFinaliOS.ApiErrorResponse&gt;) -&gt; () in proyectoFinaliOS.PostsByTopicViewModel.fetchMorePostsInTopic(posts: Swift.Dictionary&lt;Swift.String, Swift.String&gt;) -&gt; ()"
+                  moduleName = "proyectoFinaliOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/perejosepferrerventura/Documents/Proyecto%20final/iOS/proyectoFinaliOS/proyectoFinaliOS/Sources/Views/PostsByTopic/PostsByTopicViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "247">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6F3CF6AF-8C95-4164-A1AA-7B744DEE40FE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "proyectoFinaliOS/Sources/Views/PostsByTopic/PostsByTopicViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "fetchMorePostsInTopic(posts:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

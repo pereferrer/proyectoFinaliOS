@@ -9,11 +9,19 @@
 import Foundation
 
 class TopicsRepositoryImpl: TopicsRepository {
+     
     
     let session: SessionAPI
     
     init(session: SessionAPI) {
         self.session = session
+    }
+    
+    func getSingleTopicPagination(id: Int, posts: [String : String], completion: @escaping (Result<SingleTopicPaginationResponse, ApiErrorResponse>) -> ()) {
+        let request = SingleTopicRequestPagination(id: id, posts: posts)
+        session.send(request: request) { result in
+            completion(result)
+        }
     }
 
     func getSingleTopicById(id: Int, completion: @escaping (Result<SingleTopicResponse, ApiErrorResponse>) -> ()) {

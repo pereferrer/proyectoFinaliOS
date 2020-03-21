@@ -20,6 +20,11 @@ class PostsByTopicViewController: UIViewController {
     let cellIdentifier = "PostsByCategoryTableViewCell"
     let cellIdentifierNotRegistered = "NotRegisteredTableViewCell"
     let cellIdentifierSuggestedTopicsTableViewCell = "SuggestedTopicsTableViewCell"
+    var stream:[Int]?
+    var incrementalPost:Int = 1
+    var lastPost:Int=20
+    var isLoading = false
+
     
     
     init(viewModel: PostsByTopicViewModel, topicTitle:String){
@@ -188,11 +193,35 @@ extension PostsByTopicViewController: UITableViewDataSource{
         }
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastSectionIndex = tableView.numberOfSections - 1
+        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
+        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+           // print("this is the last cell")
+            let spinner = UIActivityIndicatorView(style: .gray)
+            spinner.startAnimating()
+            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+
+            self.tableView.tableFooterView = spinner
+            self.tableView.tableFooterView?.isHidden = false
+            if(self.stream != nil && self.stream?.count ?? 0 > 20 && lastPost < self.stream?.count ?? 0){
+                self.isLoading = true
+                let posts:[String:String] = ["post_ids[]":self.stream![lastPost].description]
+                lastPost += incrementalPost
+                viewModel.fetchMorePostsInTopic(posts: posts)
+            }else{
+                self.isLoading = false
+                self.tableView.tableFooterView?.isHidden = true
+            }
+        }
+    }
 }
 
 // MARK: - ViewModel Communication
 protocol PostsByTopicViewControllerProtocol: class {
-    func showPosts(posts: [PostModel], canEditTopic: Bool)
+    func showPosts(posts: [PostModel], canEditTopic: Bool, stream:[Int]?)
+    func showMorePosts(posts: [PostModel])
     func showError(with message: String)
     func updateTopicFinished(title: String)
 }
@@ -203,11 +232,18 @@ extension PostsByTopicViewController: PostsByTopicViewControllerProtocol{
         self.titleTopic = title
     }
     
-    func showPosts(posts: [PostModel], canEditTopic: Bool) {
+    func showPosts(posts: [PostModel], canEditTopic: Bool, stream:[Int]?) {
+        self.stream = stream
         self.posts = posts
         self.canEditTopic = canEditTopic
         self.tableView.reloadData()
         configureUI()
+    }
+    
+    func showMorePosts(posts: [PostModel]) {
+        self.posts.append(contentsOf: posts)
+        self.isLoading = false
+        self.tableView.reloadData()
     }
     
     func showError(with message: String) {

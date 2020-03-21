@@ -12,6 +12,8 @@ import Foundation
 
 // MARK: - SingleTopicResponse
 
+
+
 struct SingleTopicResponse: Codable {
     
     let postStream: PostStream
@@ -327,6 +329,41 @@ struct PostStream: Codable {
         case posts = "posts"
         
         case stream = "stream"
+        
+    }
+    
+}
+
+struct SingleTopicPaginationResponse:Codable{
+    
+    let postStream: PostStreamPagination
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case postStream = "post_stream"
+    }
+}
+
+struct PostStreamPagination: Codable {
+    
+    let posts: [PostPagination]
+    
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case posts = "posts"
+    }
+    
+}
+
+struct PostPagination: Codable{
+    let id: Int
+    let cooked: String
+    
+    enum CodingKeys: String, CodingKey {
+    
+    case id = "id"
+    case cooked = "cooked"
         
     }
     

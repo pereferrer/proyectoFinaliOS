@@ -38,3 +38,36 @@ struct SingleTopicRequest: APIRequest {
         return [:]
     }
 }
+
+struct SingleTopicRequestPagination: APIRequest {
+    
+    typealias Response = SingleTopicPaginationResponse
+    
+    let id: Int
+    let posts: [String:String]
+    
+    init(id: Int, posts:[String:String]) {
+        self.id = id
+        self.posts = posts
+    }
+    
+    var method: Method {
+        return .GET
+    }
+    
+    var path: String {
+        return "/t/\(id)/posts.json"
+    }
+    
+    var parameters: [String : String] {
+        return self.posts// return ["post_ids[]":"712,713"]
+    }
+    
+    var body: [String : Any] {
+        return [:]
+    }
+    
+    var headers: [String : String] {
+        return [:]
+    }
+}

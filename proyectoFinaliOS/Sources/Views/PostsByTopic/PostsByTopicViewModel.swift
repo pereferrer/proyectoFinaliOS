@@ -73,7 +73,9 @@ class PostsByTopicViewModel {
                             return PostModel(id: id, title: title)
                         }
                         
-                        self.view?.showPosts(posts: postsData, canEditTopic: value.details.canEdit ?? false)
+                        let stream = value.postStream.stream
+                        
+                        self.view?.showPosts(posts: postsData, canEditTopic: value.details.canEdit ?? false, stream: stream)
                     case .failure(let value):
                         self.view?.showError(with: value.errors.joined(separator: ","))
                         break
@@ -81,11 +83,36 @@ class PostsByTopicViewModel {
                 }
             }else{//Si no hay conexión
                 let postsData = self.dataManager.selectPostsByTopic(id: Int32(id))
-                self.view?.showPosts(posts: postsData, canEditTopic: false)
+                self.view?.showPosts(posts: postsData, canEditTopic: false, stream: nil)
             }
         } else {
             // Fallback on earlier versions
         } 
+    }
+    
+    func fetchMorePostsInTopic(posts:[String:String]) {
+        
+        if #available(iOS 12.0, *) {
+            if(networkStatus){//Si hay conexión a internet muestro los datos obtenidos de la api
+                topicsRepository.getSingleTopicPagination(id: id, posts: posts) { result in
+                    switch result {
+                    case .success(let value):
+                        if(self.dataManager.canInsertToCoreData()){//Compruebo si ha pasado el tiempo mínimo para poder actualizar CoreData -> El sync del Date que se guarda en las preferencias se establece en el appDelegate al cerrar la app o al pasar a Background
+                            //self.insertPostsToCoreDataBy(idTopic: Int32(self.id), singleTopicResponse: value)
+                        }
+                        let post = value.postStream.posts[0]
+                                                
+                        self.view?.showMorePosts(posts: [PostModel(id: post.id, title: post.cooked.deleteHtmlTags())])
+                    case .failure(let value):
+                        self.view?.showError(with: value.errors.joined(separator: ","))
+                        break
+                    }
+                }
+            }else{//Si no hay conexión
+            }
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     
