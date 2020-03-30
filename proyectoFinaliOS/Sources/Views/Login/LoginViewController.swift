@@ -68,7 +68,7 @@ protocol LoginViewControllerProtocol: class {
 
 extension LoginViewController:LoginViewControllerProtocol{
     func recoverPasswordSuccessfully() {
-        print("Recover Password completado correctamente")
+        showAlertView(message: "Recover Password completado correctamente", isError: false)
     }
     
     func loginSuccessfully() {
@@ -76,7 +76,7 @@ extension LoginViewController:LoginViewControllerProtocol{
     }
     
     func showError(with message: String) {
-        print("Username or password incorrectly")
+        showAlertView(message: "Username or password incorrectly", isError: true)
     }
 }
 

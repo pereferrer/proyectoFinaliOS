@@ -155,26 +155,18 @@ extension PostsByTopicViewController: UITableViewDelegate{
         return 0
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(indexPath.section == 0){
-            return UITableView.automaticDimension
-        }else if(indexPath.section == 1){
-            return 354
-        }else{
-            return 96
-        }
+   
+            return 150
+     
     }
 }
 
 
 extension PostsByTopicViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(section == 0){
+        
             return posts.count
-        }else if(section == 1){
-            return 1
-        }else{
-            return 6
-        }
+       
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -187,6 +179,7 @@ extension PostsByTopicViewController: UITableViewDataSource{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostsByCategoryTableViewCell else {
                 return UITableViewCell()
             }
+            cell.configureCell(urlsString: posts[indexPath.row].avatarTemplate)
             cell.textDescription?.text = posts[indexPath.row].title
             cell.textDescription.sizeToFit()
             return cell

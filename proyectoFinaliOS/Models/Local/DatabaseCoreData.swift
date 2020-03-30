@@ -289,7 +289,7 @@ class DatabaseCoreData: DataManagerDelegate {
                         return nil
                         
                 }
-                return PostModel(id: id, title: title)
+                return PostModel(id: id, title: title, avatarTemplate: "")
             }
             return postsData
         }catch{

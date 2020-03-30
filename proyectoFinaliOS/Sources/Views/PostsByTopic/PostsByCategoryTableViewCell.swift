@@ -11,6 +11,7 @@ import UIKit
 class PostsByCategoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textDescription: UILabel!
+    @IBOutlet weak var imageProfile: UIImageView!
     
     
     override func awakeFromNib() {
@@ -22,6 +23,13 @@ class PostsByCategoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configureCell(urlsString: String) {
+        let finalUrlString = "https://mdiscourse.keepcoding.io" + urlsString.replacingOccurrences(of: "{size}", with: "120")
+        let url = URL(string: finalUrlString)!
+        self.imageProfile.load(url: url)
+        self.imageProfile.roundImage()
     }
     
 }

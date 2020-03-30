@@ -12,11 +12,13 @@ class PostModel {
     
     var id:Int = -1
     var title: String = ""
+    var avatarTemplate: String = ""
     
-    convenience init(id: Int = -1, title:String){
+    convenience init(id: Int = -1, title:String, avatarTemplate: String){
         self.init()
         
         self.id = id
         self.title = title
+        self.avatarTemplate = avatarTemplate
     }
 }

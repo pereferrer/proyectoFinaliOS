@@ -359,12 +359,13 @@ struct PostStreamPagination: Codable {
 struct PostPagination: Codable{
     let id: Int
     let cooked: String
+    let avatar: String
     
     enum CodingKeys: String, CodingKey {
     
     case id = "id"
     case cooked = "cooked"
-        
+    case avatar = "avatar_template"
     }
     
 }

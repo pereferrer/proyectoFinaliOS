@@ -70,7 +70,8 @@ class PostsByTopicViewModel {
                         let postsData:Array<PostModel> = value.postStream.posts.compactMap{posts in
                             let id = posts.topicID
                             let title = posts.cooked.deleteHtmlTags()
-                            return PostModel(id: id, title: title)
+                            let avatar = posts.avatarTemplate
+                            return PostModel(id: id, title: title, avatarTemplate: avatar)
                         }
                         
                         let stream = value.postStream.stream
@@ -102,7 +103,7 @@ class PostsByTopicViewModel {
                         }
                         let post = value.postStream.posts[0]
                                                 
-                        self.view?.showMorePosts(posts: [PostModel(id: post.id, title: post.cooked.deleteHtmlTags())])
+                        self.view?.showMorePosts(posts: [PostModel(id: post.id, title: post.cooked.deleteHtmlTags(), avatarTemplate: post.avatar)])
                     case .failure(let value):
                         self.view?.showError(with: value.errors.joined(separator: ","))
                         break

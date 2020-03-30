@@ -22,24 +22,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nb-zo-oIu">
-                        <rect key="frame" x="16" y="27" width="288" height="246"/>
+                        <rect key="frame" x="144" y="90" width="160" height="120"/>
                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sagittis felis eu ornare interdum. Donec a est vitae lectus imperdiet blandit. Duis commodo erat justo, ut sollicitudin nibh sagittis ut. Fusce interdum felis in congue tincidunt. </string>
                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F7I-0h-nq0">
+                        <rect key="frame" x="16" y="90" width="120" height="120"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="6PW-zw-ZfA"/>
+                            <constraint firstAttribute="height" constant="120" id="6cY-5L-FGu"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="1Nb-zo-oIu" secondAttribute="trailing" constant="16" id="KO9-z8-qNt"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="1Nb-zo-oIu" secondAttribute="bottom" constant="16" id="MFx-fl-JvA"/>
-                    <constraint firstItem="1Nb-zo-oIu" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Yb5-mb-Mj3"/>
-                    <constraint firstItem="1Nb-zo-oIu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="eKH-TW-VCo"/>
-                    <constraint firstItem="1Nb-zo-oIu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="prV-x5-Iux"/>
-                    <constraint firstItem="1Nb-zo-oIu" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yJ2-Kp-Ytb"/>
+                    <constraint firstItem="F7I-0h-nq0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ual-1N-Ecd"/>
+                    <constraint firstItem="1Nb-zo-oIu" firstAttribute="leading" secondItem="F7I-0h-nq0" secondAttribute="trailing" constant="8" id="aX9-Wm-b3A"/>
+                    <constraint firstAttribute="trailing" secondItem="1Nb-zo-oIu" secondAttribute="trailing" constant="16" id="cKo-wt-stk"/>
+                    <constraint firstItem="1Nb-zo-oIu" firstAttribute="centerY" secondItem="F7I-0h-nq0" secondAttribute="centerY" id="t1R-Na-9Ni"/>
+                    <constraint firstItem="F7I-0h-nq0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="tNo-LJ-YPi"/>
+                    <constraint firstItem="1Nb-zo-oIu" firstAttribute="height" secondItem="F7I-0h-nq0" secondAttribute="height" multiplier="2.8" constant="-216" id="uaK-gy-d1g"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="imageProfile" destination="F7I-0h-nq0" id="gHN-vu-q9B"/>
                 <outlet property="textDescription" destination="1Nb-zo-oIu" id="4xi-20-I3J"/>
             </connections>
             <point key="canvasLocation" x="-14.492753623188406" y="110.49107142857143"/>
